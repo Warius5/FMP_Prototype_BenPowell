@@ -1,82 +1,143 @@
-# FMP Proposal
+Here’s a clearer and more detailed version of your **Medieval or Medieval Fantasy Roguelike with Autobattler Combat** idea, along with an expanded list of possible mechanics and deeper details.
 
-## Idea - Resource node delivery sim(?)
-## Game 
-- Placing down of resource nodes with payments and time values, decide how much the job will be paid.
-- Different resource nodes do different thing
-    - Some base generate resource
-    - Some take 'ingredients' to produce another resource
-    - Some just take things 
-- Ai '**drivers**' determine which node/ 'jobs' to take based on what its best job is, and take into other factors such as danger or time requirements
-- Map generates events that could affect the values
-    - Dangers that the drivers need to avoid 
-    - shortcuts or speed ups that will make the time quicker
-- Ai pathfinding of quickest route picks which job will be better for them
-- Generate most money by changing values to increase profits aswell as the amount the drivers pick your job. (Low supply, increased demand, higher payments. higher supply lower demand, lower payments)
-- drivers have different traits that affect their job choice
-- Automatic or Player changed? Simulation or game? Versus or singeplayer?
-- reactive simulation
-## Technology - Unreal 5 
-## Tools -
-## End Product
+---
 
-## ?
+### **Game Design Proposal: Medieval/Fantasy Roguelike Autobattler**
 
-### Pros
-- Using more complicated ai and pathfinding
-- less of need for artwork or fancy design
-- no controlled character movement
-### Cons
-- May be limited in scope or additions post making the ai work and placing thing.
-- possible limit in range of techniques or mechanics on show
-- not fun or engaging if not made just a simulation, hard to create good gameplay from the idea due to focus on the ai making descions.
+---
+
+**Core Concept:**
+- The game is a **roguelike** set in a medieval or fantasy setting where players lead a group of humans (or other characters) through dungeons, castles, or labyrinths.
+- Combat is handled in **autobattler style** with characters acting on their own, based on their stats, but players influence outcomes through strategic preparation, equipment, and decision-making.
+
+---
+
+### **Core Gameplay Mechanics:**
+
+1. **Party Composition and Management:**
+   - Players start with a group of **normal humans** or weak fantasy characters, but they grow in power through the game.
+   - **Stats** for each character include:
+     - **Health**: How much damage they can take.
+     - **Stamina**: How many actions they can take in a fight before needing rest or recovery.
+     - **Speed**: Affects their **position in the turn order** during autobattler combat (faster characters attack more often).
+
+2. **Turn-based Autobattler Combat:**
+   - Combat is largely automated, with characters attacking based on their stats and equipment.
+   - **Speed** determines the attack order, while **stamina** governs how long a character can continue before needing to rest.
+   - Players prepare for fights by **equipping weapons and armor**, using consumables, and strategically managing their party’s positions.
+
+3. **Inventory and Equipment System:**
+   - Each character can be equipped with different **weapons, armor, and items**.
+   - Items and gear vary in rarity and effectiveness and can be found or earned through encounters.
+   - Equipment can be **enhanced or infused** with elemental crystals (explained below) to modify their stats or add new effects.
+   
+4. **Roguelike Exploration and Map Choices:**
+   - The game is structured around a procedurally generated map with branching paths (similar to **Slay the Spire** or **FTL**).
+   - Each path/doorway leads to different encounters:
+     - **Enemy battles** (standard fights, minibosses, bosses).
+     - **Puzzles or traps** (solving them may reward items or boost stats).
+     - **Events or random encounters** (meeting NPCs, gaining new characters, etc.).
+     - **Shops** or **rest points** where players can purchase gear, heal, or restore stamina.
+
+---
+
+### **Labyrinth of Doors & Elemental Crystals:**
+
+1. **Doors and Elemental Crystals:**
+   - In some sections of the dungeon or labyrinth, players are presented with a choice of **doors**, each representing an **element** (e.g., fire, ice, lightning, earth, etc.).
+   - **Crystals** of the chosen element are awarded upon entering, which can be used in different ways to improve the party:
+     - **Infusing Weapons or Armor**: The crystals can be used to apply elemental effects to weapons and armor, giving them special properties such as:
+       - Fire crystal: Burns enemies, dealing damage over time.
+       - Ice crystal: Slows down enemy speed or freezes them for a turn.
+       - Earth crystal: Increases defense or gives a shield.
+       - Lightning crystal: Chance to strike additional enemies with chain lightning.
+     - **Infusing Characters**: Crystals can also be used directly on characters, granting them **permanent buffs or elemental powers**:
+       - Fire-infused characters deal extra damage.
+       - Ice-infused characters slow enemies with each hit.
+       - Lightning-infused characters have a chance to strike multiple enemies.
+   - This adds a layer of **strategic choice**, as players must decide between powering up their characters or enhancing their gear.
+
+2. **Elemental Synergy and Effects:**
+   - Different combinations of crystals and equipment can lead to **synergy effects**:
+     - Combining different elemental crystals on one character might create hybrid effects (e.g., fire + lightning = electrical explosion damage).
+     - Mixing crystals within a party can create team-wide buffs, such as enhanced resistance or area-of-effect damage.
+
+---
+
+### **Procedural Roguelike Mechanics:**
+
+1. **Randomized Routes and Encounters:**
+   - Each playthrough offers a new labyrinth/dungeon layout with different paths, enemies, and events.
+   - Players can choose routes based on the challenges they want to face, resources they need, or strategic positioning for future encounters.
+   
+2. **Permadeath & Progression:**
+   - Once a character dies, they’re gone for that run, but the player can recruit new characters along the way.
+   - Between runs, there may be some form of **meta-progression** where players unlock new classes, items, or starting bonuses for future runs.
+
+---
+
+### **Additional Mechanics & Features:**
+
+1. **Party Classes or Archetypes:**
+   - Characters can have different roles or classes within the party (e.g., tank, healer, rogue, mage). Each role affects how they behave in autobattler combat:
+     - **Tanks** focus on high health and defense, drawing enemy attacks.
+     - **DPS/Assassins** have high speed and deal burst damage.
+     - **Support/Healers** restore health or buff the party.
+   - New **party members** can be recruited during the run, each offering different abilities and stats.
+
+2. **Events and Encounters:**
+   - Random events may involve:
+     - **Choosing between multiple rewards** (e.g., sacrifice health for better loot, trade stamina for gold).
+     - **Dialogue-based decisions** that could lead to new items or characters joining the party.
+     - **Puzzles or mini-games** that grant buffs or rewards if solved correctly.
+
+3. **Character Progression:**
+   - Characters level up as they defeat enemies and survive encounters.
+   - Leveling up can unlock **new abilities** or improve stats like health, stamina, and speed.
+   - Characters could also gain **unique traits or perks** during a run (e.g., gaining resistance to certain elements or increased critical hit chance).
+
+4. **Boss Fights:**
+   - Certain points in the labyrinth will feature **boss encounters**, which will require special strategies, proper gear, and optimized party setups.
+   - Bosses can have unique abilities and require players to use their elemental powers and autobattler positioning carefully.
+
+---
+
+### **Potential Pros & Cons:**
+
+#### **Pros:**
+- **Variety of Builds**: With the crystal infusion system and equipment customization, players can create highly varied character builds, offering replayability.
+- **Strategic Depth**: Combining elements with different classes and party compositions adds a rich layer of tactical decision-making.
+- **Procedural Generation**: Randomly generated routes, enemies, and rewards keep each playthrough fresh and challenging.
+- **Simple AI**: Autobattler-style combat reduces the need for complex AI, focusing more on preparation and planning.
+
+#### **Cons:**
+- **Not Unique Enough**: The autobattler genre combined with roguelike elements could feel derivative unless executed with a unique twist (e.g., crystal system).
+- **Item Variety and Complexity**: The need for a large number of items and equipment could distract from the core mechanics. Balance may be difficult if the system is too complex.
+- **Balancing Complexity**: The multiple layers of mechanics (crystals, autobattler combat, rogue-like exploration) might lead to design challenges in keeping things manageable while still being fun.
+
+---
+
+### **Additional Mechanics to Consider:**
+
+1. **Meta-Progression Between Runs:**
+   - Unlockable starting perks, classes, or bonuses that players can carry over into future runs (e.g., start with a fire crystal, access better weapons from the beginning).
+   
+2. **Crafting & Item Upgrades:**
+   - Allow players to combine materials they find in the dungeon to craft new weapons or armor, or upgrade existing gear with special effects.
+   
+3. **Puzzle Encounters:**
+   - Include mini-games or puzzles where solving them could lead to rare rewards or shortcuts through the dungeon.
+
+---
 
 
-## Idea - Vietnam or modern day military support radio operator
-## Game 
-- Static map with 'counters' for each of your elements your supporting
-- Radio messages from elements asking for support using grid references
-- Need to keep up to date with positions and what is going on based on messages or may put stuff in wrong spot.
-- Choose what support to call in; medivac, reinforcements, artillery, smoke, translator etc
-- Sequence of missions unlocking call ins and getting more difficult, by either more elements to track and things happening faster.
-- Landmarks on map used instead of grid refences to make it harder to tell where to send.
+## Core Mechanics to focus on
+- Fighting
+- Character Stats
+- Equipment
+- Crystal level up
+- Procedural path
 
-## ?
-
-### Pros
-- Not alot of moving or complicated assets
-- Interesting gimick to an rts where you dont directly control things, and are going off '2nd hand' info
-
-### Cons
-- May be hard to give information or easily play without good design / artwork
-- alot of testing and complications on back end
-- may not be fun or good to play
-
-
-## Idea - Medieval or Medieval fantasy roguelike with autobattler combat
-
-## Game
-- Start with group of normal humans attacking castle or dungeon 
-- group members have health, stamina and speed 
-- Speed affects when in the turn sequence they attack  
-- give weapons and armour to make the characters in party stronger 
-- Defeat enemies or solve encounters based on rogue like map choice
-- Inventory and equipment for group members
-- 
-### Labryinth of doors
-- Each door has element that once chosen to go through your party gains a crystal of that element 
-- Infusing weapons with the crystals apply differnet affects to them, so you make your people stronger by choosing which affects to apply to their armour.
-- Or the characters given the power up instead and have weapons be extra choice.
-- given power up, given 
-
-## ?
-### Pros
-- Lots of possible ways to create 
-- No compicated ai but some ai showcase
-- procedural roguelike route
-- 
-
-### Cons
-- May not be unique enough to be fun or good
-- alot items may need to be made, to make it interesting which could detract from mechanic creation
-- different layers of mechanics may cause it to take to long to make.
+## Additions
+- Different events
+- more complex builds / abilities
