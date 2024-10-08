@@ -27,3 +27,15 @@
 
 Bibliography
 (1)||262588213843476 (s.d.) Embed public Trello cards/boards. At: https://gist.github.com/moraDmp30/8ae9304e0c2ec149fa6ec7a4bcc6190b (Accessed  01/10/2024).
+
+
+
+
+
+
+Design
+
+I started to research different games such as autobattlers and rogue likes for system i could mimic or use.
+
+
+![Yellow](/images/Research/SAP.png)
