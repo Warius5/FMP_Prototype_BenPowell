@@ -5,6 +5,17 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/BenPowell/PC_AutoBGamePlayerController.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/BenPowell/GM_AutoBGameMode.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/BenPowell/BP_MainView.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/BenPowell/BP_AutoBGameMode.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/BenPowell/BP_AutoBGamePlayerController.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/__ExternalActors__/TopDown/Maps/TopDownMap/6/OI/H4CYGWRMJ49ZI6AS2GNGQY.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/__ExternalActors__/TopDown/Maps/TopDownMap/2/2C/LOMG1IYUJBIAU8NWYXEY2T.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/__ExternalActors__/TopDown/Maps/TopDownMap/9/FY/45JOQ38QR4K2P62IGCH99F.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/TopDown/Maps/TopDownMap.umap",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/__ExternalActors__/TopDown/Maps/TopDownMap/7/43/KCOU8O5LTCF16FPA9RNLK8.uasset",
+				"E:/FMP_Prototype_BenPowell/BenPowellPrototype/Content/TopDown/Blueprints/BP_TopDownGameMode.uasset",
 				"C:/Users/wariu/OneDrive - University for the Creative Arts/Year2/NeoNoirGame/BenPowellPrototype/Content/StarterContent/Architecture/Floor_400x400.uasset"
 			]
 		}
