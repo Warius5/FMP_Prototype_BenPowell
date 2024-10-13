@@ -40,3 +40,27 @@ I started to research different games such as autobattlers and rogue likes for s
 
 ![Super Auto Pets](SAP.png)
 \SAP.png
+
+
+
+
+
+
+
+
+
+
+MVP
+
+For the minimun viable product i will need a combat system that automatically battles, but in a turn order one at a time. 
+I will also need some sort of inventory system. 
+
+Will need a base character class to create the different ones like the enemies and the player characters.
+
+For the turn based combat i will need an initiative array to put the different characters in to determine order that the units will attack.
+I will probably want to give an indication that a unit is attacking before using animations.
+
+
+
+
+Set up the camera and mode settings
