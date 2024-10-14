@@ -64,3 +64,8 @@ I will probably want to give an indication that a unit is attacking before using
 
 
 Set up the camera and mode settings
+
+Created a base character to build upon.
+Realised that a turn order could be difficult in how it would work.
+either gather all the characters into a list and sort it by speed/ initiative. 
+Or to make it avaliable to be affected during play, perhaps going through all the characters in the battle and find the current lowest in the initiative. and after the go add 20. (Make each combat 'phase' have 20 )
