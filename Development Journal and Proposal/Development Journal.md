@@ -69,3 +69,16 @@ Created a base character to build upon.
 Realised that a turn order could be difficult in how it would work.
 either gather all the characters into a list and sort it by speed/ initiative. 
 Or to make it avaliable to be affected during play, perhaps going through all the characters in the battle and find the current lowest in the initiative. and after the go add 20. (Make each combat 'phase' have 20 )
+
+I got the sorting to work, and used some debug prints to figure out if it did.
+It was adding an extra item in the index. Made it so that extra was at the end, and then removed it. This seemed to work but will have to look back at it.
+
+
+Then i wanted to make the turn sequence. 
+
+I put the sorting the turn order into its own event to play at the beiginning.
+Then it will start the turns. 
+Tried to use a for loop to go through the intiative list and trigger an attack for each one.
+I tried to add a delay so that it wouldn't trigger ti all at once. But from what i can tell delays dont work very well for loops.
+I might ask for advice on what to use, possibly using a state machine to go through it.
+Im also getting an error
