@@ -81,4 +81,6 @@ Then it will start the turns.
 Tried to use a for loop to go through the intiative list and trigger an attack for each one.
 I tried to add a delay so that it wouldn't trigger ti all at once. But from what i can tell delays dont work very well for loops.
 I might ask for advice on what to use, possibly using a state machine to go through it.
-Im also getting an error
+Im also getting an error.
+
+I spoke with Assad about my issues using a for loop and he said i should look into data driven ECS to create a combat manager.
