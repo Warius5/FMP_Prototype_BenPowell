@@ -84,3 +84,21 @@ I might ask for advice on what to use, possibly using a state machine to go thro
 Im also getting an error.
 
 I spoke with Assad about my issues using a for loop and he said i should look into data driven ECS to create a combat manager.
+
+Upon having a rethink about how the combat manager.
+Changed the sorting to the maangar and did it in a better way.
+
+https://forums.unrealengine.com/t/find-actors-then-sort/445169/2
+
+Waned to check what would happen if two of the characters had the same speeds.
+Also created child classes of the basecharacter, one for the hero and one for the enemy, so that non shared functionality could be done.
+Added functions on the battle manager to better organise the code and not have it all on the event graph
+Created a damage calc and attack logic.
+Because im using a loop to go through the turns, i cant use delays. So im figuring out how to use timers to trigger the functions instead.
+Having more issue with putting delays in, so instead focusing on the damage.
+The targetting and damaging was having issues, but turns out i had used the wrong lists.
+Sometimes the text would not update even if the health had been taken off, and it would change the wrong one.
+I move it to being a variable and it seemd to work.
+To try and get the delay to work, i got the macro of the loop and copied it in, so to see if that works.
+Still didnt work so using a manual go through rather than a loop might be the answer.
+Still not really working, but repeating the combat event successfully continues. Will need to properly add logic to that, and have some sort of overall looping. 
