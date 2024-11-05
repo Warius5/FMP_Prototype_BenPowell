@@ -102,3 +102,8 @@ I move it to being a variable and it seemd to work.
 To try and get the delay to work, i got the macro of the loop and copied it in, so to see if that works.
 Still didnt work so using a manual go through rather than a loop might be the answer.
 Still not really working, but repeating the combat event successfully continues. Will need to properly add logic to that, and have some sort of overall looping. 
+Instead of using the for loop, which causes issues for delaying between the turns.
+Using a button to trigger each movement, just so i can show it working. Used an event dispatcher, https://www.youtube.com/watch?v=5GYsTTcGGJo. To catch the keyboard press and then trigger the event in the battle manager.
+Once ive got something going i may make more use of these.
+It does go through the whole thing, now i need to make sure it doesnt do more than one thing while its 'moving' / an attack is going.
+Checking whether the enemy is dead or the players are dead.
