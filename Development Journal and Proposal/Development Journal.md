@@ -107,3 +107,17 @@ Using a button to trigger each movement, just so i can show it working. Used an 
 Once ive got something going i may make more use of these.
 It does go through the whole thing, now i need to make sure it doesnt do more than one thing while its 'moving' / an attack is going.
 Checking whether the enemy is dead or the players are dead.
+Added a UI.
+
+Played it all the way through
+Will go through each turn, once the enemy die, it show game over
+
+Created a button that starts the round.
+Made it so it will automatically go through the whole thing and stop when the enemy is dead.
+Showed problems in the way i was resetting the positions of the units, as if the enemy died mid way through, it would still leave that one forward.
+In adding a button widget, it complicated how i was doing the game over widget beforehand, so that stopped working and will have to figure out how to fix it.
+Fixed the ending issue by saving the start location. Have a full reset capability.
+Need to add some sort of inventory
+As a base for the different widgets and menus etc, i made a menu manager to control the menu and widget use outside the battle manager.
+i then realised the death screen only works properly when the first to die is the enemy, will need to do the check if all the good guys are dead.
+ 
