@@ -121,3 +121,4 @@ Need to add some sort of inventory
 As a base for the different widgets and menus etc, i made a menu manager to control the menu and widget use outside the battle manager.
 i then realised the death screen only works properly when the first to die is the enemy, will need to do the check if all the good guys are dead.
  
+I created the basis of the inventory system, as well as a Ui to allow it to be equiped. You can click the hero you want to equip and then the button affects the stats of the selected character
