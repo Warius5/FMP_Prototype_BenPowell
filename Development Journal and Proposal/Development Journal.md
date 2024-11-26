@@ -121,4 +121,22 @@ Need to add some sort of inventory
 As a base for the different widgets and menus etc, i made a menu manager to control the menu and widget use outside the battle manager.
 i then realised the death screen only works properly when the first to die is the enemy, will need to do the check if all the good guys are dead.
  
-I created the basis of the inventory system, as well as a Ui to allow it to be equiped. You can click the hero you want to equip and then the button affects the stats of the selected character
+I created the basis of the inventory system, as well as a Ui to allow it to be equiped. You can click the hero you want to equip and then the button affects the stats of the selected character.
+
+I want to fix the starrt menus and equip so its more intuitive and works properly.
+I also want it to set up properly, and will keep playing after you win or lose. So theres a complete experience. 
+
+Realised that some of my buttons were on press rather than click, which could cause some issues if people dont unpressed the button. So will rectify that on all my buttons.
+realised that it would still be looking for line trace when off the equip menus, and would cause issues if i then clicked on a character, while not in the equip screen. I set up a check to only do it while on that screen.
+i also had to move the cursor showing to the new opening UI, which after some tests was requested as a better flow for the beginning of the game.
+
+State machine to improve flow i next term?
+
+After accidentally trying to use a decorator to get the items, and being an issue for scaling, i have opted to use a data table full of structs, with details about the items. 
+To aid in this im going to create an item manager to control everything in a single place.
+Using the item manager with the data tables means its easier to add new inventory items, and then also makes it largely scaleable to however many more items there will be.
+
+Creating the re set up events, but hit snag with accesing the data table for the enemy data, as you coould only get it through the row name rather than an index. Instead i need to get the data out as a string and put it in an array of strings and get the index values from there. The use of a function library was suggested, which could be a good way to keep functions that have good possible use in multiple blueprints/ objects. I think i will use one as a test of using it.
+
+Created the function library for setting the health, speed and damage. Might try use it to do the hero characters as well as the enemy. I also finished the logic for resetting with a new enemy, so much so that the game is able to be played after winning one round, until one of the heros die. I want to change it so that its until all of them die.
+Also needed so they dont get targeted or attack if dead.
