@@ -32,14 +32,38 @@ Bibliography
 
 
 
-
+### Research
 Design
 
 I started to research different games such as autobattlers and rogue likes for system i could mimic or use.
 
 
-![Super Auto Pets](SAP.png)
-\SAP.png
+![Super Auto Pets](SAP.png)<br>
+
+![alt text](<Battle Brothers INV and Character.png> )<br>
+
+![alt text](<Crying Suns encounters.png>)<br>
+
+![alt text](<Crying Suns micromanaging.png>)<br>
+
+![alt text](<For the king stats and inventory-1.png>)<br>
+
+![alt text](<Loopstructor Item descision.png>)<br>
+
+![alt text](<Peglin Encounters.png>)<br>
+
+![alt text](<Slay the spire Layout.png>)<br>
+
+![alt text](<Slice and Dice.png>)<br>
+
+![alt text](<Sovl Choice after battle.png>)<br>
+
+![alt text](<Sovl upgrades and Stats.png>)<br>
+
+![alt text](<TFT FIGHT.png>)<br>
+
+![alt text](<TFT INV.png>)<br>
+
 
 
 
