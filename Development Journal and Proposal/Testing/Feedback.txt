@@ -1,3 +1,0 @@
-2024/11/19 
-- have multiple stages of buttons. Start -> prep/equip -> then begin.
-- Give instructions, make ui more laid out
