@@ -154,6 +154,37 @@
             <mxRectangle x="540" y="160" width="120" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-93" value="Event Tick" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1QSOvx4FQGKFCCzgHMIn-91">
+          <mxGeometry x="18" y="50" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-94" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;SetText&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1QSOvx4FQGKFCCzgHMIn-91">
+          <mxGeometry x="30" y="80" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-95" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: nowrap; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Attack Done&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1QSOvx4FQGKFCCzgHMIn-91">
+          <mxGeometry x="8" y="100" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-96" value="&lt;div style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); text-wrap-mode: nowrap;&quot;&gt;Show Attack&lt;/span&gt;&lt;/div&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1QSOvx4FQGKFCCzgHMIn-91">
+          <mxGeometry x="13" y="130" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-92" value="Event BeginPlay" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1243" y="187" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-97" value="Base Hero" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1454" y="160" width="200" height="200" as="geometry">
+            <mxRectangle x="540" y="160" width="120" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-107" value="Event BeginPlay" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1QSOvx4FQGKFCCzgHMIn-97">
+          <mxGeometry x="3" y="30" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-102" value="Base Enemy" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1670" y="160" width="200" height="200" as="geometry">
+            <mxRectangle x="540" y="160" width="120" height="30" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1QSOvx4FQGKFCCzgHMIn-108" value="Event BeginPlay" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1QSOvx4FQGKFCCzgHMIn-102">
+          <mxGeometry y="30" width="110" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
