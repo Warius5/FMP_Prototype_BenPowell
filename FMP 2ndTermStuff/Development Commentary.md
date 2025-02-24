@@ -44,3 +44,19 @@ Turn based does have some issues with it being possibly boring or tedious due to
 Big part was UI and not knowing waht the attack value was.
 
 <iframe src="https://blueprintue.com/render/ygfjkdp-/" scrolling="no" allowfullscreen></iframe>
+
+
+
+
+
+![alt text](<Untitled video - Made with Clipchamp.gif>)
+![alt text](image-1.png)
+
+From the questionaire, the main consensus is selecting the item first, and then the character wanting to be equipped. 
+Dragging the item is also a popular way of equipping the items, and it gives a good visual of actually 'equipping' the items. This will help with the confusion felt by the testers on, what order they need to click things and what characters are being equipped.
+Having effects and visuals will help show whats going on a provide a feedback effect to the player on what they're doing. 
+The super auto pet; shop and item drag mechanic, creates a clear and easy to tell way of selecting an item, and then showing the selecting of the character to add the item to. The item having clear details on what it does and how much it is. 
+
+![alt text](image-2.png)
+
+The clear details on what things do really makes it easier to play smoothly in Super Auto Pet's. Form the feedback, knowing what is equipped and how that is affecting the character, as well as seeing the stat values of the characters easily is something that is important.
