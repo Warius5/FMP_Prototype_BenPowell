@@ -60,3 +60,20 @@ The super auto pet; shop and item drag mechanic, creates a clear and easy to tel
 ![alt text](image-2.png)
 
 The clear details on what things do really makes it easier to play smoothly in Super Auto Pet's. Form the feedback, knowing what is equipped and how that is affecting the character, as well as seeing the stat values of the characters easily is something that is important.
+
+
+
+
+
+## Implementation
+
+### Process
+
+Created structure diagram of the program to better see what each part did, and to easier build from it.
+
+Adding way to see what character is selected.
+When selecting a character it will now show what character has been selected.
+
+To make it clearer i want an aura or some visual signifyier that its been selected.
+Also an outline when hovering the characters to show its selectable.
+
