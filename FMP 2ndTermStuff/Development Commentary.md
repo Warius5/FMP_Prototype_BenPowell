@@ -41,9 +41,9 @@ Turn based does have some issues with it being possibly boring or tedious due to
 
 ### Results
 
-Big part was UI and not knowing waht the attack value was.
+Big part was UI and not knowing what the attack value was.
 
-<iframe src="https://blueprintue.com/render/ygfjkdp-/" scrolling="no" allowfullscreen></iframe>
+<iframe src="https://blueprintue.com/render/ygfjkdp-/" scrolling="yes" allowfullscreen></iframe>
 
 
 
@@ -97,3 +97,23 @@ Possible?
 https://forums.unrealengine.com/t/load-csv-data-table-in-runtime-builds/414548/4
 https://blueprintue.com/blueprint/8zkq31hh/
 https://forums.unrealengine.com/t/set-data-table-row/85844/7
+
+
+
+Redoing the enemy set up, to use the created enemies rather than the set enemy data in the table. 
+
+
+because i used a function library, it means as long as i handle the inputs in the same way, i can just change the function to fit with the new array, and there isnt alot of logic to change.
+<iframe src="https://blueprintue.com/blueprint/fvsuyzz1/" scrolling="yes" allowfullscreen></iframe>
+
+<iframe src="https://blueprintue.com/blueprint/7hzjewmd/" scrolling="yes" allowfullscreen></iframe>
+
+
+While realising i may need to redo some parts which is fine, upon reflection on the project, I felt a bit lost on the steps i need to take to make the game better/ good, from what i currently have. I want to properly go through and break down the steps i need to take to make the parts, so i can more easily work on it.
+I do have a concern that alot of the games like this, where you have roguelike progression and battles like i want, have good artstyles that make it fun or gimicky, and as i dont have the best art ability, my mechanics will not fill the gap with the current plan. 
+After talking through it i realised i did not have as big an issue than i thought i did.
+Also that using an array to store the enemies is a correct idea, as it works similar to a hash table being used to save a row of a large data table in a game that would need it.
+And it shouldn't be that difficult to change what i have to work with an array of structs rather than the structs from a data table.
+
+
+As the map will have a different camera, i will need to have it move from the main view to the map view. This will go into the menuManager, it will need to happen at the start of the game, and then back to the map view after a fight has happened.
