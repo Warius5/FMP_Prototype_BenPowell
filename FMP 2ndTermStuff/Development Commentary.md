@@ -73,7 +73,25 @@ Created structure diagram of the program to better see what each part did, and t
 
 Adding way to see what character is selected.
 When selecting a character it will now show what character has been selected.
+creating a sphere to show selcected as a place holder for a better looking effect. It starts invisible and an event dispatch triggers an event in the selected hero that makes it visible, until the next selection of a hero where it sets it back to invisible.
+
+
 
 To make it clearer i want an aura or some visual signifyier that its been selected.
 Also an outline when hovering the characters to show its selectable.
 
+
+
+
+Creating the map/ progression
+
+using a data table to create bounds, with a difficulty number to use to generate enemies for levels of encounter.
+I will then create a map, and populate each node with a different enemy encounter. Using a function library to read the rows, and then functions with the map actor to get those ranges and get the random numbers.
+However using random numbers, to create a runtime, random in future layout, i will have to change how my previous enemy loading works as from what i could see online, data tables cannot be edited during runtime, so i cant then save my create enemies into a data table to be read easily with my current system. Apparently there are packages on the store that enable this, but im not sure how worth it would be to use this, rather than just re do it, which could probably help with readability and make it more efficient.
+
+
+
+
+https://www.fab.com/listings/5c77947a-5096-438f-91fb-a28729a34b57
+Possible?
+https://forums.unrealengine.com/t/load-csv-data-table-in-runtime-builds/414548/4
