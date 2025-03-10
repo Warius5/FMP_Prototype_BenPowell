@@ -95,3 +95,5 @@ However using random numbers, to create a runtime, random in future layout, i wi
 https://www.fab.com/listings/5c77947a-5096-438f-91fb-a28729a34b57
 Possible?
 https://forums.unrealengine.com/t/load-csv-data-table-in-runtime-builds/414548/4
+https://blueprintue.com/blueprint/8zkq31hh/
+https://forums.unrealengine.com/t/set-data-table-row/85844/7
