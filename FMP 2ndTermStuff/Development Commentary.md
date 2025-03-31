@@ -62,7 +62,8 @@ The super auto pet; shop and item drag mechanic, creates a clear and easy to tel
 The clear details on what things do really makes it easier to play smoothly in Super Auto Pet's. Form the feedback, knowing what is equipped and how that is affecting the character, as well as seeing the stat values of the characters easily is something that is important.
 
 
-
+## Tree Structure Research
+## wave function collapse 
 
 
 ## Implementation
@@ -182,3 +183,33 @@ This means i will have to change it to getting get all components rather than ac
 
 This is what it looks did look like, but from what ive queried to ChatGPT about the best way of doing it, theres an easier way of finding it, as well as better doing it within the map rather than the nodes themselves.
  
+
+
+Found out that the dead event would trigger before the game, because the enemies health check would trigger before the enemies stats would be allocated, so putting it at the start of the set up list makes it work.
+Begs the question on what parts of the set up on the battle manager is worth it being on begin play compared to having more set up actions be in the construct script instead.
+This actually didn't fix anything, just meant it would try and trigger before 
+
+
+
+
+Scan current pos, make possible ones children. 
+
+
+
+
+
+Plan for finsihs 
+
+
+https://www.youtube.com/watch?v=ZFA3uCg_Peg
+
+For next week
+- Read Design pattern: Tree and other data structure sections.
+- start essential Scrum
+- Go outside
+- Research wave function collapse, use that for the nodes stuff instead of manually creating tree
+- More Sololearn, github certifiation and AWS
+- Using monster difficulties, and other events to populate wave function.
+- Guest speakers - management person
+
+https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592
