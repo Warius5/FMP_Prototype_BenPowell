@@ -117,3 +117,68 @@ And it shouldn't be that difficult to change what i have to work with an array o
 
 
 As the map will have a different camera, i will need to have it move from the main view to the map view. This will go into the menuManager, it will need to happen at the start of the game, and then back to the map view after a fight has happened.
+
+
+Thought that the text would look strange if not pointing at the player camera. So i want to add a material for the text that will point to the camera. I will have to test to see if it does give a better view than flat text.
+https://forums.unrealengine.com/t/tetx-billboard/274961/2
+(Tetx billboard? - Programming & Scripting / Blueprint, 2022)
+Tetx billboard? - Programming & Scripting / Blueprint (2022) At: https://forums.unrealengine.com/t/tetx-billboard/274961 (Accessed  24/03/2025).
+
+
+Add a variable to store the location above the nodes for the player icon to move to.
+Added Enter Input, but it would not trigger in runtime.
+I then realised i had not been using the correct left click line trace, and the debug message i had been using was from a different left click. and had been using on clicked instead of left click.
+
+
+<iframe src="https://blueprintue.com/blueprint/zl_wx1nv/" scrolling="yes" allowfullscreen></iframe>
+
+Im trying to get the clicked on node, and save it. But i feel like i have overcomplicated it by using child actors on one actor, as im struggling to find the way to select the correct node to have the move to. 
+
+To test whether i could have indiivudal nodes do things and it wasnt some strange issue, i added a on mouse overlap event to test if that worked for the node. I had to change the visibilty and collision of the node to make it work.
+![alt text](image-4.png)
+
+I couldn't get it to save the correct location and BP node. So im attempting to use event dispatchers.
+Although having multiple of the same actor that could dispatch the same event makes it difficult to figure out how to set it properly.
+
+Perhaps using a interface could help with it. 
+
+Upon using a interface that takes the input from the node when its clicked, which is sent to BP_Map and used in a lerp mover that would move between the different nodes smoothly.
+
+
+<iframe src="https://blueprintue.com/blueprint/xbd657-f/" scrolling="yes" allowfullscreen></iframe>
+
+The Node selected event is an interface event which is called when a node's actoronclicked event is called and inputs the node's "location above" to lerp to the player icon to the clicked node.
+Using the interface makes it easier to connect mutltiple of the same node logic to logic on the map. An event dispatcher or other methods might have worked to do the same thing, but this was the simpler way to do it without extra steps.
+
+Now i need to populate the nodes, and have it load the encounter that has been generated. 
+The BP_nodes were child actor components and they wouldn't cast into the array as BP_Nodes.
+Found on this webstie https://forums.unrealengine.com/t/blueprint-does-not-inherit-from-child-actor-component-cast-to-would-always-fail/555398 That i need to use "Get Child actor".
+<iframe src="https://blueprintue.com/render/n1pg-0oe/" scrolling="no" allowfullscreen></iframe>]
+
+![alt text](image-5.png)
+
+With this part a good start, i now need to make sure it loads the encounter properly and the previous stuff still works.
+One thing with using a left click event in the map, makes the other left click not work. 
+https://www.reddit.com/r/unrealengine/comments/1eh17iv/if_i_want_the_left_mouse_click_to_do_multiple/
+This website suggets using Input mapping contexts. Which looks to be the more up to date version of using inputs. If there was alot more specific inputting going forwards, or alot more 'sections' that it could be used for, redoing the input doesnt seem worth for what it fixes.
+Instead im going to use checks and either interfaces or event dispatches, and depending on what menu is up, do a specific action.
+After further investigation, i realised, as i was using an onclicked, i did not need the other left click events. And thus not needing any extra checks.
+
+I want to store a reference to the map from the battle manager, so it can more easily access the array with the enemy info.
+The battle logic was not working correctly and after going through parts and figuring out where the logic path stopped, i realised that as the map view was now the starting palyer pawn, rather than the mainview. To fix this i will make it instance editable, and set it specifically in the editor, as there are only one instance of each.
+
+Now i need to have it so it will go back to the selection screen after a battle has happened. And then have the selection be counted.
+![alt text](image-6.png)
+Using this as a plan for how to get the different actors to look through.
+I created a outline of the logic in my Constructing the tree function. It got all actors of class, and saved it in an array. It removes itself from the array incase that could cause an issue. It then goes through each one and gets the location of the indexed and the position of self, and removes it if it has a lower Y value. Turns out the ones behind are actually higher Y values so i needed to swap that around. 
+![alt text](image-7.png)
+I then need to get a left and right actor, using the same methods of comparing each one, however using the new array gained from removing behind ones. I also foresaw an issue where the if a node didnt have a right or left it would cause an error. I add an isvalid check for changing the materials.
+
+It wasnt working completely. One of the logics in the comparisons were probably wrong, to go through it systematically i will change round less than/greater than to see what it affects.
+
+One thing i had forgot, that could be causing issues, is that the Nodes are all child actors on the Map actor, so using actual location may not be the best thing to do. From querying this to chatGPT, it seems that using the parent actor to do all the logic is a better thign to do, as it will use the correct locations.
+This means i will have to change it to getting get all components rather than actors.
+<iframe src="https://blueprintue.com/render/fcwh048q/" scrolling="no" allowfullscreen></iframe>
+
+This is what it looks did look like, but from what ive queried to ChatGPT about the best way of doing it, theres an easier way of finding it, as well as better doing it within the map rather than the nodes themselves.
+ 
