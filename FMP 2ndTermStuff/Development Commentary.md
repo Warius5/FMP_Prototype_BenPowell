@@ -63,7 +63,12 @@ The clear details on what things do really makes it easier to play smoothly in S
 
 
 ## Tree Structure Research
+
+
+
 ## wave function collapse 
+
+
 
 
 ## Implementation
@@ -194,6 +199,14 @@ This actually didn't fix anything, just meant it would try and trigger before
 
 Scan current pos, make possible ones children. 
 
+
+
+## Wave function generation of the map tree.
+
+Viewing each encounter as a 'tile' within the context of a WFC. 
+Using my preexisting data table of different difficulty encounters, i can use them to create each node within the wfc.
+This involves using a for loop to create child actor components. Because im using child actor, i need to use the get child actor.
+https://forums.unrealengine.com/t/blueprint-does-not-inherit-from-child-actor-component-cast-to-would-always-fail/555398
 
 
 
