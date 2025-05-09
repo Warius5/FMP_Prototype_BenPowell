@@ -206,23 +206,26 @@ Scan current pos, make possible ones children.
 Viewing each encounter as a 'tile' within the context of a WFC. 
 Using my preexisting data table of different difficulty encounters, i can use them to create each node within the wfc.
 This involves using a for loop to create child actor components. Because im using child actor, i need to use the get child actor.
-https://forums.unrealengine.com/t/blueprint-does-not-inherit-from-child-actor-component-cast-to-would-always-fail/555398
+https://forums.unrealengine.com/t/blueprint-does-not-inherit-from-child-actor-component-cast-to-would-always-fail/555398.
+After generating a node, it will need to be put into an array. The left and right nodes are set in the current node. And the new ones are put into an array. Determining what needs to be class specific and what doesn't is a bit confusing, as i going back and forth how its going depending on what is needed where.
+<iframe src="https://blueprintue.com/blueprint/3insnvsc/" scrolling="no" allowfullscreen></iframe>
 
+This spawns 2 nodes.
 
+![alt text](image-8.png)
+It works in the viewport, but when looking in the map, it does not work correctly. I think its probably to do with the relative/ locations used.
 
+![alt text](image-9.png)
 
-Plan for finsihs 
+I think it had something to do with using a copy of the array, so using referneces to an object may not have worked. Or that using relative location doesn't work because the new nodes aren't being added to the map properly to use that relative location.
+Turns out changing the 'Add Child Actor Component' location settings to being world location and then using the world location of the current node makes it work fine.
+
+![alt text](image-10.png)
+A frustrating fix, as it's way less complicated than what i was trying to do.
+Now i need to make sure they dont overlap, or that they are seperate directions.
 
 
 https://www.youtube.com/watch?v=ZFA3uCg_Peg
 
-For next week
-- Read Design pattern: Tree and other data structure sections.
-- start essential Scrum
-- Go outside
-- Research wave function collapse, use that for the nodes stuff instead of manually creating tree
-- More Sololearn, github certifiation and AWS
-- Using monster difficulties, and other events to populate wave function.
-- Guest speakers - management person
 
 https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592
