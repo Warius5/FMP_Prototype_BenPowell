@@ -224,8 +224,19 @@ Turns out changing the 'Add Child Actor Component' location settings to being wo
 A frustrating fix, as it's way less complicated than what i was trying to do.
 Now i need to make sure they dont overlap, or that they are seperate directions.
 
+To fix the overlapping problem, i can either add a spacing amount that scales with which level/ depth the node is on. Or i stop the spawning, and have the different sections connect.
+One way of checking whether a node can be added would be to to create a map that stores the locations of the nodes, and if the position trying to be spawned is in the map it will prevent it from spawning, 
+
+https://blueprintue.com/blueprint/x2qybrde/
+https://www.youtube.com/watch?v=3mHjybsLhc0
+
+This uses a map of BP_nodes that use a vector as a key. The nodes location is saved as the vector, so the location can be searched against. If there is no node at the location it is created as before. But if there is a node at that location, a new one is not created, and that node is set as that current nodes left or right node.
+
+Next fixing so you cant click a node that isn't availiable, probably by checking whether a clicked node is left or right node of a current one.
+
+
 
 https://www.youtube.com/watch?v=ZFA3uCg_Peg
 
 
-https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592
+https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592a
