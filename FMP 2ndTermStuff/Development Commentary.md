@@ -234,9 +234,36 @@ This uses a map of BP_nodes that use a vector as a key. The nodes location is sa
 
 Next fixing so you cant click a node that isn't availiable, probably by checking whether a clicked node is left or right node of a current one.
 
+<iframe src="https://blueprintue.com/render/0upfmzxc/" scrolling="no" allowfullscreen></iframe>
+this checks whether the clicked node is one of the currently clicked node's saved left and right nodes. 
+This also brought to my attention that the indicators did not work for the first node as it did not do it set up until one had been clicked. This is fixed by having it run once at beginplay.
 
+![alt text](image-11.png)
+
+<video controls src="2025-05-11 17-45-22-1.mkv" title="Title"></video>
+
+Next is to reattach the difficulties to the nodes and have them show what difficulty they have.
+
+
+The previous populate and nodenums functions to set up the difficulties and make the nodes display them.
+At the moment the a seperate array of event is kept to be assigned, because the way the nodes were going to be when i made that are not like that anymore. 
+Instead, ill have each node have a depth value when they generate, and then determining on the depth value, the chance of the difficulty being selected will be differnet.
+When a node is created, the current node is set as the parent node, only when a new one is created, to avoid overwriting.
+To make generating the events, having 4 functions in a function library, means that i can then use a switch to select one of those functions.
+To make it more random what difficutly is, the difficulty will either be the same as the previous node, or one more than the previous. 
+
+Because when a node is prevented from spawning if theres a node in the same place, the array of nodes array has gaps in it.
+![alt text](image-12.png)
+Either those gaps need to be removed or skipped over when getting to it.
+easily fixed by using isvalid and only proceeding when it is. 
 
 https://www.youtube.com/watch?v=ZFA3uCg_Peg
+
+Some of the nodes were not showing their difficulty, the last row, while i wasn't sure the exact reason, the stats for those nodes being run on the begin play nodes, seemingly werent running. So instead i put the logic in its own event, and then in the BP_Map, going through each one and triggering it.
+<iframe src="https://blueprintue.com/render/mhjflk77/" scrolling="no" allowfullscreen></iframe>
+
+![alt text](image-13.png)
+
 
 
 https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592a
