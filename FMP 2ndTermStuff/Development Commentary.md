@@ -265,5 +265,12 @@ Some of the nodes were not showing their difficulty, the last row, while i wasn'
 ![alt text](image-13.png)
 
 
+Sorted camera, level loads, win needs to send to to map and then choose and then next battle.
+
+
+Start menu
+Map
+Battle.
+
 
 https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592a
