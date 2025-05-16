@@ -267,6 +267,22 @@ Some of the nodes were not showing their difficulty, the last row, while i wasn'
 
 Sorted camera, level loads, win needs to send to to map and then choose and then next battle.
 
+Choosing next level after battle.
+
+<iframe src="https://blueprintue.com/render/hgzhlvzh/" scrolling="no" allowfullscreen></iframe>
+
+
+
+Boss
+At the end of the 
+<iframe src="https://blueprintue.com/render/r0liewxy/" scrolling="no" allowfullscreen></iframe>
+Added boss stats
+
+attach boss to end nodes.
+
+Restart button
+
+
 
 Start menu
 Map
