@@ -11,6 +11,11 @@
 
 ## Project Outcome
 
+<p> This project aim is to create an autobattler prototype system, with item equipping, turn based combat, and an overall progression map that is used to go between the battles. 
+<P> For the project i want to make use of a different sort of layout/ architecture of the parts of the project than i am used to, where i would normally use a object oriented design to structure the project, i want to use a more data oriented structure. Other than gaining experience creating and designing a system that uses a different sort of methodology than have before, using a data oriented approach seems a better way getting through the turn based and stats based combat of the game. Using managers and passing data and events between them to complete the battle and ui logic means its all centralised in one place makes using turn based more easy as its all in one manager rather than spread out between different places.
+<p> I also want to have alot of the parts be dynamic in their creation, where rather than all manually made / assigned by me specifically, i want the set up and generation of the map especially to be create in a script, with limited interaction.
+<p> I think the one of the more difficult things will be making the map in an good way, as there are many possible ways of having the map tree, and having not done something like that before, figuring out the way to do it may be hard so some trial and error may be needed.
+<p> As the project goes on, being able to go back through and fix things within the managers may cause issues, as things could become to entangled with each other, so changing or adding things may become somewhat problematic. Hopefully i can keep ontop of it, or atleast make use of events and functions to seperate out the logic to avoid.
 
 ## Research
 
@@ -31,7 +36,9 @@ to move or perform actions outside of their own turn"
 From the evaluation made by this paper, using infomation gathered from forum posts to generate overall opinions on the strengths and weaknesses of the different battle styles. Real time seems to point towards single character, intense action and being problematic having multiple party members. Also as there is no direct control while the combat is going, having real time actions do not make sense.
 Real time with pause is a possible idea, as it allows party management and tactical depth. However it also does not really gain from being real time with the features planned. 
 Turn based does have some issues with it being possibly boring or tedious due to the same animations being played over and over. Also some turn based games can be predictable if there is an obivious un-changing order to the combat. With 
+(Mäkelä and Schmidt, 2020)
 
+Mäkelä, V. and Schmidt, A. (2020) 'I Don’t Care as Long as It’s Good: Player Preferences for Real-Time and Turn-Based Combat Systems in Computer RPGs' In: Proceedings of the Annual Symposium on Computer-Human Interaction in Play. CHI PLAY ’20: The Annual Symposium on Computer-Human Interaction in Play. Virtual Event Canada: ACM. pp.231–240. At: https://dl.acm.org/doi/10.1145/3410404.3414248 (Accessed  17/02/2025).
 
 ## UI
 
@@ -279,14 +286,21 @@ At the end of the
 Added boss stats
 
 attach boss to end nodes.
+To make it semi automatic, goes through the array to find the highest number depth(being the last row). And for every node with that depth, sets the left and right node to being the boss node.
 
-Restart button
-
-
-
-Start menu
-Map
-Battle.
+<iframe src="https://blueprintue.com/render/nq5p5e4u/" scrolling="no" allowfullscreen></iframe>
 
 
-https://ucreative.summon.serialssolutions.com/search?s.q=Mike+mcgrath#!/search/document?pn=1&ho=t&include.ft.matches=f&l=en&q=design%20patterns%20elements%20of%20reusable%20object&id=FETCHMERGED-ucreative_catalog_8888592a
+
+
+# Testing
+
+
+# Reflection
+
+## Research
+I've made use of a range of research, whether it be from academic, games and documentation. I used academic sources to affect some decisions in related to the underlying game, being the decision to use turn based for the game as apposed to live battling. By looking at games like super auto pets and other turn based battlers, it helped decide how the turns would laid out, where the option of one after the other, or the front ones at the same time. This game having the enemies be one big one rather than multiple small enemies, having the game be one after the other fits better.
+I think perhaps having a better idea around the underlying layout of the games i took interest in, such as peggle for its map, or super auto pets for the item equipping, may have let me have a better idea of how they were made and why they were done like that to either change the way i made it or make it easier in my implementation.
+
+## Positive
+I think deciding to use a map reference to create the nodes  
