@@ -328,9 +328,40 @@ Some sort of visual indicator of damage taken was requested as if theres no deat
 
 If the tester was fast enough they could click on a multiple nodes and skip, but non valid nodes could still not be clicked.
 
+
+
+# Polish and Testing based fixes
+
+[Link to results of survey](https://docs.google.com/forms/d/1U_z3QnWBpURIj_iwKYPRiUs4XDgG9Hy1ulCgtZFZiwg/edit#responses)
+
+I fed the results into Chatgpt to give me key areas that need improvement or adding.
+| Area             | Action Items                                                              |
+| ---------------- | ------------------------------------------------------------------------- |
+| Tutorial/Clarity | Add intro tutorial, improve UI clarity, fix overlapping text              |
+| Player Feedback  | Better responses to actions (equip, win, fail), improve damage indicators |
+| Animations       | Add simple animations inspired by JRPGs and tactical RPGs                 |
+| Gameplay Systems | Consider risk-reward mechanics and experimental combat styles             |
+| Visual Polish    | Refine character visuals and ensure UI readability                        |
+
+The key take away from the feedback on things that can be improved is by giving better instructions on what to do, make it clearer on what is going on.
+By fixing the texts and adding more for clarity and explanations, and then adding animations or effects to show interactions and feedback.
+
+Attack animations, moving the text and background music.
+
+
+
+## Animations and skins
+
+Got skeletal mesh and attack animations from mixamo.
+Tried attack and idle animations, using `Play Animation` to add a simple animation on the attack, but the one i used moved the character while in the animation and because the character also moves it causes some issues. So rather than using an animation that moves, having the character move and the animation be an inplace one should fix without having to overcomplicate things.
+Added event to character called take damage to play a getting hit animation when it is targetted in the battlemanager.
+Added animation to walk back while reseting but check if it needs to move and doesnt play animation if doesnt.
+
+
+
 # Reflection
 
-## Researchd
+## Research
 I've made use of a range of research, whether it be from academic, games and documentation. I used academic sources to affect some decisions in related to the underlying game, being the decision to use turn based for the game as apposed to live battling. By looking at games like super auto pets and other turn based battlers, it helped decide how the turns would laid out, where the option of one after the other, or the front ones at the same time. This game having the enemies be one big one rather than multiple small enemies, having the game be one after the other fits better.
 I think perhaps having a better idea around the underlying layout of the games i took interest in, such as peggle for its map, or super auto pets for the item equipping, may have let me have a better idea of how they were made and why they were done like that to either change the way i made it or make it easier in my implementation.
 
