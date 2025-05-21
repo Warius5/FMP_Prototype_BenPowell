@@ -357,6 +357,15 @@ Tried attack and idle animations, using `Play Animation` to add a simple animati
 Added event to character called take damage to play a getting hit animation when it is targetted in the battlemanager.
 Added animation to walk back while reseting but check if it needs to move and doesnt play animation if doesnt.
 
+## Background music
+
+<iframe src="https://blueprintue.com/render/9i1odfvk/" style="width: 100%; height: 50vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+*`BP_AudioManager`*
+
+## UI And Options
+
+<iframe src="https://blueprintue.com/render/1sty41yg/" scrolling="no" allowfullscreen></iframe>
 
 
 # Reflection
