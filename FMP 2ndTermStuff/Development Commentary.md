@@ -1,311 +1,293 @@
 # 2204331 Ben Powell
 # Ben Powell Project Commentary
+Repository Link: [Repo](https://github.com/Warius5/FMP_Prototype_BenPowell/tree/FMP)
 
+Itch.io Build: [Itch](https://warius5.itch.io/turn-based-auto-battler)
+
+Video link: [Video Demonstration](https://youtu.be/y-19JoRGPuk)
 
 ## Project Outcome
 
 This project aim is to create an autobattler prototype system, with item equipping, turn based combat, and an overall progression map that is used to go between the battles. 
 
 For the project i want to make use of a different sort of layout/ architecture of the parts of the project than i am used to, where i would normally use a object oriented design to structure the project, i want to use a more data oriented structure. Other than gaining experience creating and designing a system that uses a different sort of methodology than have before, using a data oriented approach seems a better way getting through the turn based and stats based combat of the game. Using managers and passing data and events between them to complete the battle and ui logic means its all centralised in one place makes using turn based more easy as its all in one manager rather than spread out between different places.
-<p> I also want to have alot of the parts be dynamic in their creation, where rather than all manually made / assigned by me specifically, i want the set up and generation of the map especially to be create in a script, with limited interaction.
-<p> I think the one of the more difficult things will be making the map in an good way, as there are many possible ways of having the map tree, and having not done something like that before, figuring out the way to do it may be hard so some trial and error may be needed.
-<p> As the project goes on, being able to go back through and fix things within the managers may cause issues, as things could become to entangled with each other, so changing or adding things may become somewhat problematic. Hopefully i can keep ontop of it, or atleast make use of events and functions to seperate out the logic to avoid.
+I also want to have a lot of the parts be dynamic in their creation, where rather than all manually made / assigned by me specifically, i want the set up and generation of the map especially to be create in a script, with limited interaction.
+I think the one of the more difficult things will be making the map in an good way, as there are many possible ways of having the map tree, and having not done something like that before, figuring out the way to do it may be hard so some trial and error may be needed.
+As the project goes on, being able to go back through and fix things within the managers may cause issues, as things could become to entangled with each other, so changing or adding things may become somewhat problematic. Hopefully I can keep on top of it, or at least make use of events and functions to separate out the logic to avoid.
+
+
+## Organisation
+
+* Using Github for version control, as is what i've used before, and allows me to keep saves of the unreal project that can be easily added to from different computers and keeps past versions in case anything breaks horribly.
+* Using a Trello board to make a time plan, using a Kanban structure, as the development was mainly in steps of things being done, so not a lot of backwards cross to other mechanics. Therefore, the tasks can go along the stages on the board as i complete parts. Which fits with the ethos of Kanban.
+https://trello.com/
+
+<iframe src = "https://trello.com/b/KM5ifd0c.html" frameBorder="0" width="100%" height="700"> </iframe>
+
+
+[If the embed doesnt work](https://trello.com/b/KM5ifd0c/fmp-proper)
+
+* I will also try to keep ontop of using proper naming and file strucure for my files, and where i forget to, or cannot. I will try to make the actors, variable and events names be clear and useful.
+* Also using comments within the blueprints to explain key parts or purposes of the main nodes.
 
 ## Research
 
-### Battle Style
+---
+
+###  **Methodology**
+
+* Used a range of sources: **games**, **academic papers**, **technical documentation**, and **user feedback**.
+* Focused research around three areas:
+
+  * Turn-based combat systems (gameplay structure)
+  * UI/UX design and feedback
+  * Procedural map generation
+* Carefully selected games that reflected **specific mechanics** relevant to the vision for my game, rather than genre alone.
+* Supplemented academic research with:
+
+  * Unreal Engine documentation
+  * Community forums
+  * **ChatGPT** to clarify and explain solutions that were unclear or scattered in other sources.
+* Conducted iterative **user testing** via surveys and gameplay observations to validate interface clarity and gameplay mechanics throughout development.
+
+---
+
+###  **Game Sources**
+
+#### *Super Auto Pets* (Team Wood Games, 2021)
+
+* Auto-battler featuring drag-and-drop item mechanics and simple turn-based combat.
+* Pets have two stats (attack and health), which **reset after each round** unless changed in the shop phase.
+* Influenced:
+
+  * My item equipping system (drag-and-drop)
+  * Stat display feedback (colour coding)
+  * Decision to use **automated combat** rather than player-selected actions.
+* Strong UI feedback through colour, sound, and animations inspired my use of hover indicators and clear stat visuals.
+
+![Super Auto Pets](https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1714040/ss_f61be4caff97d77b7df02bcdadee2687232e991f.1920x1080.jpg?t=1680944541)
+(Team Wood Games, 2021)
+
+---
+
+#### *Darkest Dungeon* (Red Hook Studios, 2016)
+
+* Roguelike turn-based RPG using strict initiative-based combat.
+* Characters act one at a time, each with individual animations and positional effects.
+* Inspired my **sequential turn logic** — each character performs a full turn before the next, improving clarity and animation feedback.
+* Helped inform pacing and attack presentation in my battle system.
+
+---
+
+#### *Peglin* (Red Nexus Games, 2022)
+
+* Roguelike with turn-based battles and a **branching node map**.
+* Map system inspired my **procedural node generation**:
+
+  * Used child actor components for dynamic node creation.
+  * Adapted from static to procedural structure using spatial logic and depth-based generation.
+* Influenced visual design for nodes:
+
+  * Clear distinction between active, inactive, and completed paths.
+  * Visual clarity of the map helped inform **UI layout and player path feedback**.
+
+![Peglin Map Example](https://static.wikia.nocookie.net/peglin/images/4/43/Map.png/revision/latest/scale-to-width-down/1000?cb=20220127024649)
+(Peglin Wiki, 2025)
+
+---
+
+###  **Academic Sources**
+
+#### *Turn-Based vs Real-Time Combat* (Mäkelä and Schmidt, 2020)
+
+* Compared player preferences for different combat styles in RPGs.
+* Key observations:
+
+  * “The key characteristic of RT systems is that all, or almost all, of the gameplay takes place in real-time.”
+  * Turn-based systems: “combatants act in turns, usually one at a time. Other combatants are typically unable to move or perform actions outside of their own turn.”
+* Study showed turn-based combat is **better suited for party control**, supporting my design choice to avoid real-time or RT-with-pause systems.
+* Identified that real-time systems can hinder multi-character control, while turn-based combat fits strategic, readable design.
 
 ![Real-Time Screenshot](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/eb3b81c56b20f7246d4caeede5c472dbea602498/FMP%202ndTermStuff/Images/RealTime.png)
-
-
-
-
-Figure 1. Diagram of Thing, fthis explain a particular concept and I can write all day here and it does not go towards my word count.
-
-"The key characteristic of RT systems is that all, or almost all, of the gameplay takes place in real-time."
-
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/TurnBased.png)
-<br></br>
-"combatants act in turns, usually one at a time. Other combatants are typically unable
-to move or perform actions outside of their own turn"
-<br></br>
-
+![Turnbased screenshot](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/TurnBased.png)
 ![RTWPause](https://github.com/Warius5/FMP_Prototype_BenPowell/raw/eb3b81c56b20f7246d4caeede5c472dbea602498/FMP%202ndTermStuff/Images/RTWPause.png)
-<br></br>
 
-From the evaluation made by this paper, using infomation gathered from forum posts to generate overall opinions on the strengths and weaknesses of the different battle styles. Real time seems to point towards single character, intense action and being problematic having multiple party members. Also as there is no direct control while the combat is going, having real time actions do not make sense.
-Real time with pause is a possible idea, as it allows party management and tactical depth. However it also does not really gain from being real time with the features planned. 
-Turn based does have some issues with it being possibly boring or tedious due to the same animations being played over and over. Also some turn based games can be predictable if there is an obivious un-changing order to the combat. With 
-(Mäkelä and Schmidt, 2020)
+---
 
-Mäkelä, V. and Schmidt, A. (2020) 'I Don’t Care as Long as It’s Good: Player Preferences for Real-Time and Turn-Based Combat Systems in Computer RPGs' In: Proceedings of the Annual Symposium on Computer-Human Interaction in Play. CHI PLAY ’20: The Annual Symposium on Computer-Human Interaction in Play. Virtual Event Canada: ACM. pp.231–240. At: https://dl.acm.org/doi/10.1145/3410404.3414248 (Accessed  17/02/2025).
+#### *Data-Oriented Design (DOD)* (Rosell Hernandez, 2022–2023)
+
+* Explores DOD as a performance- and structure-focused alternative to OOP.
+* DOD benefits beyond performance:
+
+  * Modular structure
+  * Easier debugging
+  * Cleaner, centralized logic
+* Quote: DOD “fundamentally changes the way a program is conceived, making it more efficient from the start.”
+* Influenced my use of **centralized managers** and **data-driven systems** in both combat and map design.
+* Helped avoid deep inheritance hierarchies and improved the maintainability of expanding systems.
+
+---
+
+#### *Wave Function Collapse (WFC)* – Procedural Generation (Gumin, 2023; Geschwärzt, 2022)
+
+
+* WFC is a constraint-solving procedural algorithm originally used for texture synthesis.
+* Quote: WFC is “a non-backtracking, greedy constraint solving method that is able to generate complex patterns based on a set of input samples” (Gumin, 2023).
+* Can be used for generating branching or structured content based on adjacency rules.
+* I researched WFC as a possible tool for procedural map generation, but chose not to use it due to:
+
+  * Complexity relative to my needs
+  * Most documentation focused on grid/tile systems
+  * Potential contradictions if constraints were too strict (Geschwärzt, 2022)
+* Instead, I implemented a simpler system using **manual checks and randomised node spawning**, but WFC informed my understanding of constraint-based logic.
+
+* Using this video as a example of WFC in use, made me view the wfc in more of a texture generating way, and after looking at other ways to create he node tree, would overcomplicating things. (3D Wave Function Collapse Unreal Overview, 2024)
+---
+
+## Implementation
 
 ## UI
 
 
 
-## Initial User feedback
+## Initial User feedback of prototype
 
+[Link to results of survey](https://forms.office.com/Pages/AnalysisPage.aspx?AnalyzerToken=kicANjRSNFTOrDz91SWRa2kFrZ5jzEmN&id=DDGcBsLUVEWxZpDKgFpeqhCe_JK5EUJHqmW8pKszlMJUNzQ5MDdJMzBSUTFJQVNJNjBMQlRLNVJaUS4u)
 ### Results
 
-Big part was UI and not knowing what the attack value was.
-
-<iframe 
-    src="https://blueprintue.com/render/ygfjkdp-/" 
-    style="width: 100%; height: 100vh; border: none;" 
-    scrolling="yes" 
-    allowfullscreen>
-</iframe>
-
-
-
-
-
+* **Early testing focused on core UI and combat systems**, with feedback highlighting a strong desire for clearer visual indicators (e.g., turn cues, stat displays, and equipped item visibility) and a simple tutorial to ease players into the mechanics.
+* **Combat pacing received mixed feedback**, with an average rating suggesting it felt slightly slow — highlighting the need to streamline animation timing or offer user control over combat speed.
+* **Post-battle flow and progression expectations** (e.g., loot choices, map navigation) were frequently mentioned, which directly informed the later decision to implement a **rogue-like node-based map** to enhance player agency and long-term structure.
 
 ![alt text](<https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/ResearchVid/Untitled%20video%20-%20Made%20with%20Clipchamp.gif>)
 ![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-1.png)
 
-From the questionaire, the main consensus is selecting the item first, and then the character wanting to be equipped. 
-Dragging the item is also a popular way of equipping the items, and it gives a good visual of actually 'equipping' the items. This will help with the confusion felt by the testers on, what order they need to click things and what characters are being equipped.
-Having effects and visuals will help show whats going on a provide a feedback effect to the player on what they're doing. 
-The super auto pet; shop and item drag mechanic, creates a clear and easy to tell way of selecting an item, and then showing the selecting of the character to add the item to. The item having clear details on what it does and how much it is. 
 
 ![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-2.png)
 
-The clear details on what things do really makes it easier to play smoothly in Super Auto Pet's. Form the feedback, knowing what is equipped and how that is affecting the character, as well as seeing the stat values of the characters easily is something that is important.
+* The clear details on what things do really makes it easier to play smoothly in Super Auto Pet's. Form the feedback, knowing what is equipped and how that is affecting the character, as well as seeing the stat values of the characters easily is something that is important. 
+
+---
+
+## **Battle Manager**
+
+<iframe src="https://blueprintue.com/render/qanh32po/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* The destination of a lot of event dispatches, coming from UI buttons 
+* Coordinates the **combat flow** between heroes and enemies.
+* Controls turn order, damage handling, and end-of-battle logic.
+* Integrates tightly with `BPC_Hero` and `BPC_Enemy` via `references` to trigger attacks and updates to stats or texts.
+* Issues encountered included **broken references** when switching camera views — fixed by making references `Instance Editable` and explicitly assigning them in the editor.
+* Integrates with the map system by triggering return transitions after battle completion (`Battle Finish to Map`).
+* Uses array sorting to sort all the characters by their speed.
+  <iframe src="https://blueprintue.com/render/hrwi5n5i/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+* Uses a tag system to track what characters are alive, to make it easier to find who can be targeted. Rather than having to remove them from the array and possibly cause issues, just having them not show up in a array of 'alive characters' means there's less adding and re-adding to structures.
+* Makes use of lots of events that often trigger each other rather than from externally, so some of them could be put into functions instead. However, as many of the events use variables and data that come from elsewhere, keeping all the logic in one place so you can follow where logic and info have come from seems like a decent bonus.
+*  With hindsight, a lot of the functions probably could've been events and some of the events could have been functions. I think more planning could help with cleaning up what should go where, and streamlining logic and the amount of events. (Event/functions, what’s the main difference between them? - Programming & Scripting / Blueprint, 2016)
+
+---
+
+## **Characters (`BP_BaseCharacter`, `BPC_Hero` and `BPC_Enemy`)**
+
+<iframe src="https://blueprintue.com/render/739thrz2/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* Contains the logic for health, attack stats, animations, mostly triggered from the `battle manager`.
+* Visual feedback includes animations and sounds. Triggered using `Play Animation` rather than using a behaviour tree, as the animations were complex, and no nuanced player movement means partway states/ blends do not matter as much.
+* Lerps used to show the turn being done, like in the super auto pets or darkest dungeon. Made it simpler than using a moving animation that would not return to the correct place, or jump around too much.
+* As the main parts of the Hero's and Enemy are the same, a `BaseCharacter` is used to create a `BPC_Hero` and `BPC_Enemy`. With that mostly allow the character specific logic like setting health and triggering the visibility of the selection sphere.
+
+---
+
+## **Item Manager**
+
+<iframe src="https://blueprintue.com/render/bjsyfcog/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* Handles item selection, equipping, and application of stat changes to characters.
+* Uses `Data tables` to store the item stats, meaning its scalable for if new items were to be added, as well as allowing the structure to be expanded if new values were needed.
+(Working with Data in Unreal Engine; Data tables, Data Assets, UPROPERTY specifiers and more! | Tutorial, 2024)
+* Stat changes triggered by item usage do not persist across rounds unless by buying equipment, mimicking SAP’s temporary vs. permanent stat flow.
+* Uses event dispatchers to get the equip event to trigger, and then sends out a dispatch to track the number of `equips` are left.
+
+---
+
+## **Menu Manager**
+
+<iframe src="https://blueprintue.com/render/6-fpz72h/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* Controls transitions between the viewports. 
+* Manages the UI being added and removed  
+* Some of the logic could probably be more centrally handled in the ui blueprints themselves.
+* uses the references to the game mode to set up the dispatches, as an in between the manager and other things, as it was a reference that could be made by any bp and widget. I think that this probably isn't the most necessary, if I set it up differently from the start. 
+
+---
+
+## **Map**
+
+<iframe src="https://blueprintue.com/render/5adufuzu/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* The `BP_Map` sets up the node tree to use for selecting the next encounter. This involves generating the node tree dynamically and then populating it with an event. 
+* Moves the player location sphere when a valid node is clicked and sets the event.
+* Initially considered using `Wave Function Collapse (WFC)` (Gumin, 2023), but was found to be overengineered for the project’s linear tree structure — instead a dynamic generation of the tree, using 'self replicating nodes' using a `TMap_LocationMap` to control placement, and then an array to be stored. (Map Containers in Unreal Engine | Unreal Engine 5.5 Documentation | Epic Developer Community, s.d.) (How to... Map Variables, 2021)
+* Construction
+<iframe src="https://blueprintue.com/render/evp23jg7/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* Constructing the tree - starts at the node, and uses the LocationMap to store it, using its location as the key. Adds the node to the array. and then generates 2 child nodes through `Node making`. Then loops for a specified amount, and calls node making for each one.  
+<iframe src="https://blueprintue.com/render/i9c2jav1/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* NodeMaking - Done for left and right for each node. The new nodes are spawned a set distance away from the 'current' node. This location is first checked against the `Tmap LocationMap` as a key. And if it is the node is spawned as a child component and is added to the array. 
+<iframe src="https://blueprintue.com/render/wfx1r9jd/"style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+
+* This set up allows the current use of the nodes as child components, and as the connections generate they are made, there are no issues having to try and go back through and figure out where the nodes are, and then where the player will be able to go.
 
 
-## Tree Structure Research
+
+## [Link to showing Map working](https://youtu.be/4-OyRDOcjKk)
 
 
-
-## wave function collapse 
-
-
-
-
-## Implementation
-
-### Process
-
-Created structure diagram of the program to better see what each part did, and to easier build from it.
-
-Adding way to see what character is selected.
-When selecting a character it will now show what character has been selected.
-creating a sphere to show selcected as a place holder for a better looking effect. It starts invisible and an event dispatch triggers an event in the selected hero that makes it visible, until the next selection of a hero where it sets it back to invisible.
-
-
-
-To make it clearer i want an aura or some visual signifyier that its been selected.
-Also an outline when hovering the characters to show its selectable.
-
-
-
-
-Creating the map/ progression
-
-using a data table to create bounds, with a difficulty number to use to generate enemies for levels of encounter.
-I will then create a map, and populate each node with a different enemy encounter. Using a function library to read the rows, and then functions with the map actor to get those ranges and get the random numbers.
-However using random numbers, to create a runtime, random in future layout, i will have to change how my previous enemy loading works as from what i could see online, data tables cannot be edited during runtime, so i cant then save my create enemies into a data table to be read easily with my current system. Apparently there are packages on the store that enable this, but im not sure how worth it would be to use this, rather than just re do it, which could probably help with readability and make it more efficient.
-
-
-
-
-https://www.fab.com/listings/5c77947a-5096-438f-91fb-a28729a34b57
-Possible?
-https://forums.unrealengine.com/t/load-csv-data-table-in-runtime-builds/414548/4
-https://blueprintue.com/blueprint/8zkq31hh/
-https://forums.unrealengine.com/t/set-data-table-row/85844/7
-
-
-
-Redoing the enemy set up, to use the created enemies rather than the set enemy data in the table. 
-
-
-because i used a function library, it means as long as i handle the inputs in the same way, i can just change the function to fit with the new array, and there isnt alot of logic to change.
-<iframe src="https://blueprintue.com/render/fvsuyzz1/" style="width: 100%; height: 100vh; border: none;" scrolling="yes" allowfullscreen></iframe>
-
-
-<iframe src="https://blueprintue.com/render/7hzjewmd/" style="width: 100%; height: 100vh; border: none;" scrolling="yes" allowfullscreen></iframe>
-
-
-While realising i may need to redo some parts which is fine, upon reflection on the project, I felt a bit lost on the steps i need to take to make the game better/ good, from what i currently have. I want to properly go through and break down the steps i need to take to make the parts, so i can more easily work on it.
-I do have a concern that alot of the games like this, where you have roguelike progression and battles like i want, have good artstyles that make it fun or gimicky, and as i dont have the best art ability, my mechanics will not fill the gap with the current plan. 
-After talking through it i realised i did not have as big an issue than i thought i did.
-Also that using an array to store the enemies is a correct idea, as it works similar to a hash table being used to save a row of a large data table in a game that would need it.
-And it shouldn't be that difficult to change what i have to work with an array of structs rather than the structs from a data table.
-
-
-As the map will have a different camera, i will need to have it move from the main view to the map view. This will go into the menuManager, it will need to happen at the start of the game, and then back to the map view after a fight has happened.
-
-
-Thought that the text would look strange if not pointing at the player camera. So i want to add a material for the text that will point to the camera. I will have to test to see if it does give a better view than flat text.
-https://forums.unrealengine.com/t/tetx-billboard/274961/2
-(Tetx billboard? - Programming & Scripting / Blueprint, 2022)
-Tetx billboard? - Programming & Scripting / Blueprint (2022) At: https://forums.unrealengine.com/t/tetx-billboard/274961 (Accessed  24/03/2025).
-
-
-Add a variable to store the location above the nodes for the player icon to move to.
-Added Enter Input, but it would not trigger in runtime.
-I then realised i had not been using the correct left click line trace, and the debug message i had been using was from a different left click. and had been using on clicked instead of left click.
-
-
-<iframe src="https://blueprintue.com/render/zl_wx1nv/" style="width: 100%; height: 100vh; border: none;" scrolling="yes" allowfullscreen></iframe>
-
-Im trying to get the clicked on node, and save it. But i feel like i have overcomplicated it by using child actors on one actor, as im struggling to find the way to select the correct node to have the move to. 
-
-To test whether i could have indiivudal nodes do things and it wasnt some strange issue, i added a on mouse overlap event to test if that worked for the node. I had to change the visibilty and collision of the node to make it work.
-![alt text](image-4.png)
-
-I couldn't get it to save the correct location and BP node. So im attempting to use event dispatchers.
-Although having multiple of the same actor that could dispatch the same event makes it difficult to figure out how to set it properly.
-
-Perhaps using a interface could help with it. 
-
-Upon using a interface that takes the input from the node when its clicked, which is sent to `BP_Map` and used in a lerp mover that would move between the different nodes smoothly. 
-
-
-<iframe src="https://blueprintue.com/render/xbd657-f/"style="width: 100%; height: 100vh; border: none;" scrolling="yes" allowfullscreen></iframe>
-
-The Node selected event is an interface event which is called when a node's actoronclicked event is called and inputs the node's "location above" to lerp to the player icon to the clicked node.
-Using the interface makes it easier to connect mutltiple of the same node logic to logic on the map. An event dispatcher or other methods might have worked to do the same thing, but this was the simpler way to do it without extra steps.
-
-Now i need to populate the nodes, and have it load the encounter that has been generated. 
-The BP_nodes were child actor components and they wouldn't cast into the array as BP_Nodes.
-Found on this webstie https://forums.unrealengine.com/t/blueprint-does-not-inherit-from-child-actor-component-cast-to-would-always-fail/555398 That i need to use "Get Child actor".
-<iframe src="https://blueprintue.com/render/n1pg-0oe/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>]
-
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-5.png)
-
-With this part a good start, i now need to make sure it loads the encounter properly and the previous stuff still works.
-One thing with using a left click event in the map, makes the other left click not work. 
-https://www.reddit.com/r/unrealengine/comments/1eh17iv/if_i_want_the_left_mouse_click_to_do_multiple/
-This website suggets using Input mapping contexts. Which looks to be the more up to date version of using inputs. If there was alot more specific inputting going forwards, or alot more 'sections' that it could be used for, redoing the input doesnt seem worth for what it fixes.
-Instead im going to use checks and either interfaces or event dispatches, and depending on what menu is up, do a specific action.
-After further investigation, i realised, as i was using an onclicked, i did not need the other left click events. And thus not needing any extra checks.
-
-I want to store a reference to the map from the battle manager, so it can more easily access the array with the enemy info.
-The battle logic was not working correctly and after going through parts and figuring out where the logic path stopped, i realised that as the map view was now the starting palyer pawn, rather than the mainview. To fix this i will make it instance editable, and set it specifically in the editor, as there are only one instance of each.
-
-Now i need to have it so it will go back to the selection screen after a battle has happened. And then have the selection be counted.
+### Old Map
 ![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-6.png)
-Using this as a plan for how to get the different actors to look through.
-I created a outline of the logic in my Constructing the tree function. It got all actors of class, and saved it in an array. It removes itself from the array incase that could cause an issue. It then goes through each one and gets the location of the indexed and the position of self, and removes it if it has a lower Y value. Turns out the ones behind are actually higher Y values so i needed to swap that around. 
 ![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-7.png)
-I then need to get a left and right actor, using the same methods of comparing each one, however using the new array gained from removing behind ones. I also foresaw an issue where the if a node didnt have a right or left it would cause an error. I add an isvalid check for changing the materials.
 
-It wasnt working completely. One of the logics in the comparisons were probably wrong, to go through it systematically i will change round less than/greater than to see what it affects.
+[Old logic](https://blueprintue.com/render/fcwh048q/)
+* This old logic was my first idea on how to create the connected nodes, however due to the relative vs actual location, and using child components of a normal actor, made figuring out how fix any issue quite difficult. It was also done after the fact, so the tree would be made manually.
 
-One thing i had forgot, that could be causing issues, is that the Nodes are all child actors on the Map actor, so using actual location may not be the best thing to do. From querying this to chatGPT, it seems that using the parent actor to do all the logic is a better thign to do, as it will use the correct locations.
-This means i will have to change it to getting get all components rather than actors.
-<iframe src="https://blueprintue.com/render/fcwh048q/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
+* Originally wanted to use datatables to save the enemies, however they could not be done at runtime. I researched into custom plugins that would allow that, but it added alot of complexity that wouldn't give anything saving as a struct would couldn't.(Runtime DataTable, s.d.)
 
-This is what it looks did look like, but from what ive queried to ChatGPT about the best way of doing it, theres an easier way of finding it, as well as better doing it within the map rather than the nodes themselves.
- 
-
-
-Found out that the dead event would trigger before the game, because the enemies health check would trigger before the enemies stats would be allocated, so putting it at the start of the set up list makes it work.
-Begs the question on what parts of the set up on the battle manager is worth it being on begin play compared to having more set up actions be in the construct script instead.
-This actually didn't fix anything, just meant it would try and trigger before 
+[Link to plugin](https://www.fab.com/listings/5c77947a-5096-438f-91fb-a28729a34b57)
 
 
 
 
-Scan current pos, make possible ones children. 
+
+* Boss Making - To be able to be done at the end, no matter the size of the tree.
+* The end nodes then have their left and right nodes set to the boss to make it connected.
 
 
+---
 
-## Generating The Map tree 
+## **Node**
 
-Originally planned to create a wave function collapse for the tree, however after research into it 
-Viewing each encounter as a 'tile' within the context of a WFC. 
-Using my preexisting data table of different difficulty encounters, i can use them to create each node within the wfc.
-This involves using a for loop to create child actor components. Because im using child actor, i need to use the get child actor.
-https://forums.unrealengine.com/t/blueprint-does-not-inherit-from-child-actor-component-cast-to-would-always-fail/555398.
-After generating a node, it will need to be put into an array. The left and right nodes are set in the current node. And the new ones are put into an array. Determining what needs to be class specific and what doesn't is a bit confusing, as i going back and forth how its going depending on what is needed where.
-<iframe src="https://blueprintue.com/render/3insnvsc/" style="width: 100%; height: 100vh; border: none;"scrolling="no" allowfullscreen></iframe>
+<iframe src="https://blueprintue.com/render/j_2ou7bj/" style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
 
-This spawns 2 nodes.
+* Represents individual progression points in the map tree.
+* Stores depth, difficulty, and connections to `LeftNode`, `RightNode`, and `ParentNode`.
+* Uses `ActorOnClick` and `Interfaces` to trigger selection and movement logic in `BP_Map`. (Interfaces in Unreal Engine | Unreal Engine 5.5 Documentation | Epic Developer Community, s.d.)
+* Stores the enemy event after its generated, so when its clicked its sent to the map, which sends it to the battleManager.
+* Has a border that changes its material depending on whether its valid or not to give a visual indicator to the player.
+* Difficulty selected using the randomly selecting the current or previous depth, and feeding that into a switch that triggers different `Function Libraries` that contain getters to get data from data tables.
+* This gets the range of stats in a `struct` which are then fed through `Structpop` to get the actual values. (Structs in Unreal Engine | Unreal Engine 5.5 Documentation | Epic Developer Community, s.d.)
+* Using structs and function libraries feed into the more data oriented design i am going for, which makes it easily usable, scalable and changeable if i need to add more data.
+* When the node is clicked on its checked whether its currently valid to be clicked, and then sent through a interface to the map to trigger the move.
+---
 
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-8.png)
-It works in the viewport, but when looking in the map, it does not work correctly. I think its probably to do with the relative/ locations used.
+## **Audio Manager**
 
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-9.png)
+<iframe src="https://blueprintue.com/render/4llax9j5/" scrolling="no" allowfullscreen></iframe>
 
-I think it had something to do with using a copy of the array, so using referneces to an object may not have worked. Or that using relative location doesn't work because the new nodes aren't being added to the map properly to use that relative location.
-Turns out changing the 'Add Child Actor Component' location settings to being world location and then using the world location of the current node makes it work fine.
+* Handles sound effects and music cues across different parts of the game.
+* Plays at the start, with a link to the options menu that will turn the music on and off. 
 
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-10.png)
-A frustrating fix, as it's way less complicated than what i was trying to do.
-Now i need to make sure they dont overlap, or that they are seperate directions.
-
-To fix the overlapping problem, i can either add a spacing amount that scales with which level/ depth the node is on. Or i stop the spawning, and have the different sections connect.
-One way of checking whether a node can be added would be to to create a map that stores the locations of the nodes, and if the position trying to be spawned is in the map it will prevent it from spawning,
-
-<iframe src="https://blueprintue.com/render/x2qybrde/"style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
-
-
-https://www.youtube.com/watch?v=3mHjybsLhc0
-
-This uses a map of BP_nodes that use a vector as a key. The nodes location is saved as the vector, so the location can be searched against. If there is no node at the location it is created as before. But if there is a node at that location, a new one is not created, and that node is set as that current nodes left or right node.
-
-Next fixing so you cant click a node that isn't availiable, probably by checking whether a clicked node is left or right node of a current one.
-
-<iframe src="https://blueprintue.com/render/0upfmzxc/"style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
-this checks whether the clicked node is one of the currently clicked node's saved left and right nodes. 
-This also brought to my attention that the indicators did not work for the first node as it did not do it set up until one had been clicked. This is fixed by having it run once at beginplay.
-
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-11.png)
-
-<video controls src="ShowingMapWorks.mp4" title="Title"></video>
-
-Next is to reattach the difficulties to the nodes and have them show what difficulty they have.
-
-
-The previous populate and nodenums functions to set up the difficulties and make the nodes display them.
-At the moment the a seperate array of event is kept to be assigned, because the way the nodes were going to be when i made that are not like that anymore. 
-Instead, ill have each node have a depth value when they generate, and then determining on the depth value, the chance of the difficulty being selected will be differnet.
-When a node is created, the current node is set as the parent node, only when a new one is created, to avoid overwriting.
-To make generating the events, having 4 functions in a function library, means that i can then use a switch to select one of those functions.
-To make it more random what difficutly is, the difficulty will either be the same as the previous node, or one more than the previous. 
-
-Because when a node is prevented from spawning if theres a node in the same place, the array of nodes array has gaps in it.
-
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-12.png)
-
-Either those gaps need to be removed or skipped over when getting to it.
-easily fixed by using isvalid and only proceeding when it is. 
-
-https://www.youtube.com/watch?v=ZFA3uCg_Peg
-
-Some of the nodes were not showing their difficulty, the last row, while i wasn't sure the exact reason, the stats for those nodes being run on the begin play nodes, seemingly werent running. So instead i put the logic in its own event, and then in the BP_Map, going through each one and triggering it.
-<iframe src="https://blueprintue.com/render/mhjflk77/"style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
-
-![alt text](https://raw.githubusercontent.com/Warius5/FMP_Prototype_BenPowell/refs/heads/FMP/FMP%202ndTermStuff/Images/image-13.png)
-
-
-Sorted camera, level loads, win needs to send to to map and then choose and then next battle.
-
-Choosing next level after battle.
-
-<iframe src="https://blueprintue.com/render/hgzhlvzh/"style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
-
-
-
-Boss
-At the end of the 
-<iframe src="https://blueprintue.com/render/r0liewxy/"style="width: 100%; height: 100vh; border: none;" scrolling="no" allowfullscreen></iframe>
-Added boss stats
-
-attach boss to end nodes.
-To make it semi automatic, goes through the array to find the highest number depth(being the last row). And for every node with that depth, sets the left and right node to being the boss node.
-
-<iframe src="https://blueprintue.com/render/nq5p5e4u/" style="width: 100%; height: 100vh; border: none; "scrolling="no" allowfullscreen></iframe>
-
-
-
-`BP_Map`
-
+---
 
 
 
@@ -322,9 +304,9 @@ When going between rounds the hero selected stays, so if you press a button it '
 [Video showing Issue](https://youtu.be/MOX6ynnFVkY)
 
 Player was unsure on how the order / distance of each of the characters are significant or work.
-Some sort of explaination of it being random could be good.
+Some sort of explanation of it being random could be good.
 They also beat the boss and there was no screen to retry or end, as i had forgotten to add one for that scenario while i was doing the losing one.
-Some sort of visual indicator of damage taken was requested as if theres no deaths its somewhat hard to tell what has happened.
+Some sort of visual indicator of damage taken was requested as if there's no deaths its somewhat hard to tell what has happened.
 
 If the tester was fast enough they could click on a multiple nodes and skip, but non valid nodes could still not be clicked.
 
@@ -353,26 +335,83 @@ Attack animations, moving the text and background music.
 ## Animations and skins
 
 Got skeletal mesh and attack animations from mixamo.
-Tried attack and idle animations, using `Play Animation` to add a simple animation on the attack, but the one i used moved the character while in the animation and because the character also moves it causes some issues. So rather than using an animation that moves, having the character move and the animation be an inplace one should fix without having to overcomplicate things.
-Added event to character called take damage to play a getting hit animation when it is targetted in the battlemanager.
+Tried attack and idle animations, using `Play Animation` to add a simple animation on the attack, but the one i used moved the character while in the animation and because the character also moves it causes some issues. So rather than using an animation that moves, having the character move and the animation be an in place one should fix without having to overcomplicate things.
+Added event to character called take damage to play a getting hit animation when it is targeted in the battlemanager.
 Added animation to walk back while reseting but check if it needs to move and doesnt play animation if doesnt.
 
-## Background music
-
-<iframe src="https://blueprintue.com/render/9i1odfvk/" style="width: 100%; height: 50vh; border: none;" scrolling="no" allowfullscreen></iframe>
-
-*`BP_AudioManager`*
 
 ## UI And Options
 
 <iframe src="https://blueprintue.com/render/1sty41yg/" scrolling="no" allowfullscreen></iframe>
+
+Moved around the text and added more to explain things better.
+
+## Fixing Boss win and map problem
+
+Checks if the current node is the boss node when it wins.
+need to stop being able to click, or triggering the selecting node.
+
 
 
 # Reflection
 
 ## Research
 I've made use of a range of research, whether it be from academic, games and documentation. I used academic sources to affect some decisions in related to the underlying game, being the decision to use turn based for the game as apposed to live battling. By looking at games like super auto pets and other turn based battlers, it helped decide how the turns would laid out, where the option of one after the other, or the front ones at the same time. This game having the enemies be one big one rather than multiple small enemies, having the game be one after the other fits better.
-I think perhaps having a better idea around the underlying layout of the games i took interest in, such as peggle for its map, or super auto pets for the item equipping, may have let me have a better idea of how they were made and why they were done like that to either change the way i made it or make it easier in my implementation.
+I think perhaps having a better idea around the underlying systems of the games i took interest in, such as Peggle for its map, or super auto pets for the item equipping, may have let me have a better idea of how they were made and why they were done like that to either change the way i made it or make it easier in my implementation. 
+Perhaps having a better overview of the technical hurdles i would overcome from the beginning and instead making quick separate prototypes of all my systems, and researching what way would be the best to go forward would help in being more efficient in the structure and implementation.
 
 ## Positive
-I think deciding to use a map reference to create the nodes  
+I really enjoyed the problem solving involved in creating the Map's node tree, going through multiple iterations of where and how it was done. Being able to step back and look at another way of implementing it enabled me to use the TMap and learn how they worked. As i went,  i felt i made use of better structuring techniques, such as 
+when to use functions and being more concise in layout and variable etc usage. 
+The change in style of how i made the game, where instead of using object oriented design, using data oriented and managers, was successful in showing there are alternate ways of organising a project. The managers made it easier to control and figure things out, but having to send things around to places did get a bit tedious, but i wouldn't be surprised if there were better ways of doing it. 
+I'm glad i made use of some testing, to get feedback on whether the game was good to play and what parts in the ui needed fixing. 
+
+## Negative Analysis
+
+My biggest issue was definitely the lack of a clear structure and 'plan of attack' on how to get to the end goal. This led me to make a lot of it up as i went, and led to inefficiencies and mess when connecting back to a previous system. It also led me to having a bit of a negative attitude in terms of getting into doing the work, as the unknown's somewhat crushed my willingness to start working. 
+I think that a more refactor open mindset to the systems would have benefitted me, as there were a few occasions that i was limited or slowed down by previous systems or ideas, that were probably not the best done, that did not work very well with what my idea was at the time, so it would take longer to get it to work correctly, than if i had redone the previous connection to work better.
+I think my mindset in terms of creating something that was more professional could have been better, as I felt like i was treating it less seriously as a 'public facing' project, so certain things like polishing more in a player facing way was lacking until the end which made it more rushed than it should have. 
+I also wished i made better use of the trello board to keep up with times, and plan better. But as i lost track of the priorities of the project, i mostly neglected the trello board as i went.
+
+## Next Time
+
+In the next big project i do, i want to ensure i have a more defined architectural plan, possibly going to a designer to properly design the different systems required, with more expertise. This clarity would then allow more structure and better code and systems, and make it look more professional. 
+Lending more time to creating visuals like vfx etc could be good, as i had neglected those components until the end making those additions need to be added at end messily rather than built from the start.
+Making the project more modular and structured to make development easier and more understandable is something i would also like to do more of.  
+
+
+# Bibliography
+
+Team Wood Games (2021) Super Auto Pets [Video game]. Developed and published by Team Wood Games.
+
+Red Hook Studios (2016) Darkest Dungeon [Video game]. Developed and published by Red Hook Studios.
+
+Mäkelä, V. and Schmidt, A. (2020) 'I Don’t Care as Long as It’s Good: Player Preferences for Real-Time and Turn-Based Combat Systems in Computer RPGs' In: Proceedings of the Annual Symposium on Computer-Human Interaction in Play. CHI PLAY ’20: The Annual Symposium on Computer-Human Interaction in Play. Virtual Event Canada: ACM. pp.231–240. At: https://dl.acm.org/doi/10.1145/3410404.3414248 
+
+Geschwärzt, J. (2022) Procedural Generation of Buildings Using Wave Function Collapse. Bachelor’s Thesis. HAW Hamburg. Available at: https://reposit.haw-hamburg.de/bitstream/20.500.12738/15709/1/BA_Procedural%20Generation%20of%20Buildings_geschw%C3%A4rzt.pdf 
+
+Map Containers in Unreal Engine | Unreal Engine 5.5 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/map-containers-in-unreal-engine .
+
+How to... Map Variables (2021) At: https://www.youtube.com/watch?v=3mHjybsLhc0 
+
+
+Event/functions, what’s the main difference between them? - Programming & Scripting / Blueprint (2016) At: https://forums.unrealengine.com/t/event-functions-whats-the-main-difference-between-them/351110 
+
+3D Wave Function Collapse Unreal Overview (2024) At: https://www.youtube.com/watch?v=ZFA3uCg_Peg 
+
+Structs in Unreal Engine | Unreal Engine 5.5 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/structs-in-unreal-engine 
+
+Working with Data in Unreal Engine; Data tables, Data Assets, UPROPERTY specifiers and more! | Tutorial (2024) At: https://dev.epicgames.com/community/learning/tutorials/Gp9j/working-with-data-in-unreal-engine-data-tables-data-assets-uproperty-specifiers-and-more 
+
+Interfaces in Unreal Engine | Unreal Engine 5.5 Documentation | Epic Developer Community (s.d.) At: https://dev.epicgames.com/documentation/en-us/unreal-engine/interfaces-in-unreal-engine 
+
+
+## Declared Assets
+
+Chatgpt
+
+All animations and skeletal meshes from Mixamo
+
+Music from Pixabay:
+punch | Royalty-free Music (s.d.) At: https://pixabay.com/sound-effects/punch-95294/ (Accessed  22/05/2025).
+Medieval Adventure | Royalty-free Music (s.d.) At: https://pixabay.com/music/beats-medieval-adventure-154671/ (Accessed  21/05/2025).
